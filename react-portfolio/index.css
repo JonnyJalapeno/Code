@@ -1,0 +1,5 @@
+/* index.css */
+.no-scroll {
+  overflow: hidden;
+  height: 100%;
+}

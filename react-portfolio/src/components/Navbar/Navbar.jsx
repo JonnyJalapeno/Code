@@ -1,9 +1,20 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Navbar.module.css';
 import { getImageUrl } from '../../utils';
 
 export const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  // Prevent scrolling when menu is open
+useEffect(() => {
+  if (menuOpen) {
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden'; // Prevent scroll on <html> too
+  } else {
+    document.body.style.overflow = '';
+    document.documentElement.style.overflow = '';
+  }
+}, [menuOpen]);
 
   return (
     <>

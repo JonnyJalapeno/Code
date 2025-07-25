@@ -49,8 +49,12 @@
 /* --- Mobile styles --- */
 @media screen and (max-width: 830px) {
   .navbar {
-    flex-direction: column;
-    align-items: flex-start;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background-color: var(--color-bg); /* match background */
   }
   .menu {
     position: absolute;

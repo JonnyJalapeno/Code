@@ -19,10 +19,22 @@ export const Navbar = () => {
 
   // Scroll lock on mobile menu open
   useEffect(() => {
-    if (menuOpen && isMobile) {
+    const lockScroll = () => {
+      document.documentElement.style.overflow = 'hidden';
       document.body.style.overflow = 'hidden';
-    } else {
+      document.getElementById('root').style.overflow = 'hidden';
+    };
+
+    const unlockScroll = () => {
+      document.documentElement.style.overflow = '';
       document.body.style.overflow = '';
+      document.getElementById('root').style.overflow = '';
+    };
+
+    if (menuOpen && isMobile) {
+      lockScroll();
+    } else {
+      unlockScroll();
     }
   }, [menuOpen, isMobile]);
 
